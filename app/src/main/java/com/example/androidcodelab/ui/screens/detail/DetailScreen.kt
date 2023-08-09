@@ -23,7 +23,7 @@ fun DetailRoute(
     viewModel: MainViewModel,
     toHome: () -> Unit,
 ) {
-    val chipState by viewModel.chipState.collectAsStateWithLifecycle()
+    val chipState by viewModel.test.collectAsStateWithLifecycle()
     DetailScreen(
         chipState = chipState,
         viewModel::onChipUpdate,
@@ -34,7 +34,7 @@ fun DetailRoute(
 @Composable
 fun DetailScreen(
     chipState: List<ChipModel>,
-    onItemChipClick: (Int, Boolean) -> Unit,
+    onItemChipClick: (ChipModel) -> Unit,
     toHome: () -> Unit
 ) {
     Column(modifier = Modifier.fillMaxSize(), horizontalAlignment = Alignment.CenterHorizontally) {

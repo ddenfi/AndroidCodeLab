@@ -17,7 +17,7 @@ import androidx.compose.ui.unit.dp
 @Composable
 fun DisasterFilterGroup(
     chipState: List<ChipModel>,
-    onItemChipClick: (Int,Boolean) -> Unit
+    onItemChipClick: (ChipModel) -> Unit
 ) {
     LazyRow(
         userScrollEnabled = true,
@@ -27,7 +27,7 @@ fun DisasterFilterGroup(
         itemsIndexed(items = chipState, key = { index, item -> item.title }) { index, item ->
             FilterChip(
                 selected = item.selected,
-                onClick = { onItemChipClick(index,!item.selected) },
+                onClick = { onItemChipClick(item) },
                 label = { Text(text = item.title) }
             )
         }

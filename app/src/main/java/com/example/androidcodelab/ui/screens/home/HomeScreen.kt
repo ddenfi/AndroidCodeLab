@@ -23,7 +23,7 @@ fun HomeRoute(
     viewModel: MainViewModel,
     toDetail: () -> Unit,
 ) {
-    val chipState by viewModel.chipState.collectAsStateWithLifecycle()
+    val chipState by viewModel.test.collectAsStateWithLifecycle()
     HomeScreen(
         chipState = chipState,
         onItemChipClick =  viewModel::onChipUpdate,
@@ -33,7 +33,7 @@ fun HomeRoute(
 @Composable
 internal fun HomeScreen(
     chipState: List<ChipModel>,
-    onItemChipClick: (Int, Boolean) -> Unit,
+    onItemChipClick: (ChipModel) -> Unit,
     toDetail: () -> Unit
 ) {
     Column(modifier = Modifier.fillMaxSize(),horizontalAlignment = Alignment.CenterHorizontally) {

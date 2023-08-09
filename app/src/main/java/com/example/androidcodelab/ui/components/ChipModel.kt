@@ -6,10 +6,10 @@ import com.example.androidcodelab.R
 data class ChipModel(
     var selected: Boolean = false,
     var title: String,
-    @DrawableRes val icon: Int
+    @DrawableRes val icon: Int = 0
 )
 
-val listDisaster = mutableListOf(
+val listDisaster = listOf(
     ChipModel(
         title = "Banjir",
         icon = R.drawable.ic_flood
